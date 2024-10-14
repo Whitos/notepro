@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\Categorie;
 use App\Entity\ClassLevel;
 use App\Entity\Evaluation;
 use App\Entity\Professor;
@@ -10,6 +11,7 @@ use App\Repository\ClassLevelRepository;
 use App\Repository\SubjectRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -61,6 +63,16 @@ class EvaluationType extends AbstractType
                     return $er->findByProfessor($prof);
                 },
             ])
+
+            ->add('libelle', EntityType::class, [
+            'class' => Categorie::class,
+            'placeholder' => 'Seléctionner une catégorie',
+            'choice_label' => 'libelle',
+            'multiple' => false,
+            'expanded' => false,
+            'label' => 'Catégorie',
+            'mapped' => false,
+        ])
         ;
     }
 

@@ -161,4 +161,17 @@ class Evaluation
         }
         return null;
     }
+
+    public function getAverageGradeClasse(): ?float
+    {
+        $nbNotes = $this->grades->count();     // variable $nbNotes qui va recuperer une collection de evaluations et compter le nombre de notes
+        if ($nbNotes === 0) { // si le nombre de notes est égale à 0 retourne null
+            return null;
+        }
+        $sum = 0; // variable $sum qui va recuperer la somme des notes
+        foreach ($this->grades as $grade) {    //pour chaque evaluation dans la collection d'evaluations on va recuperer la note et l'ajouter à la somme
+            $sum += $grade->getGrade();
+        }
+        return $sum / $nbNotes;         // retourne la moyenne des notes   // PS cest mon code
+    }
 }

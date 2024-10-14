@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\PreviousPasswords;
+use App\Entity\Professor;
 use App\Entity\Student;
 use App\Form\StudentType;
 use App\Repository\StudentRepository;
@@ -16,6 +17,18 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/etudiant')]
 class StudentController extends AbstractController
 {
+//    #[Route('/mesprofs', name: 'app_student_mesprofs', methods: ['GET', 'POST'])]
+//    public function mesprofs(EntityManagerInterface $entityManager): Response
+//    {
+//        $etudiant = $this->getUser();
+//
+//        //$professeurs = $etudiant->getProfessor
+//
+//        return $this->render('student/index.html.twig',[
+//           'professors' => $professorsReepository->findAll()
+//        ]);
+//    }
+
     #[Route('/', name: 'app_student_index', methods: ['GET'])]
     public function index(StudentRepository $studentRepository): Response
     {
@@ -111,5 +124,6 @@ class StudentController extends AbstractController
             'grades' => $student->getGrades()
 
         ]);
+
     }
 }

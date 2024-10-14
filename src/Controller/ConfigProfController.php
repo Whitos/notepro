@@ -11,6 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 class ConfigProfController extends AbstractController
 {
@@ -30,6 +31,8 @@ class ConfigProfController extends AbstractController
         ]);
     }
 
+
+    #[IsGranted('ROLE_ADMIN')]
     #[Route('/configprof/', name: 'app_config_prof_subject')]
     public function configProfSubject(Request $request, EntityManagerInterface $entityManager, ?Professor $professor): Response
     {

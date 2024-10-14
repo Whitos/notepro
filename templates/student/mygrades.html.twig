@@ -11,6 +11,7 @@
             <th scope="col">Evaluation</th>
             <th scope="col">Note</th>
             <th scope="col">Barème</th>
+            <th scope="col">MoyenneNote</th>
         </tr>
         </thead>
         <tbody>
@@ -19,6 +20,7 @@
             <td>{{ gr.evaluation.label }}</td>
             <td>{{ gr.grade }}</td>
             <td>{{ gr.evaluation.bareme }}</td>
+            <td>{{ gr.student.averageGrade }}</td>
         </tr>
         {% endfor %}
         </tbody>

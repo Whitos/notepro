@@ -9,6 +9,7 @@
     <ul>
         {% for eval in evals %}
             <li>{{ eval.label }} <a href="{{ path('app_evaluation_set_grades', {id: eval.id}) }}"><button class="btn btn-secondary">Notes</button></a></li>
+            <li>Moyenne de la classe : {{ eval.averageGradeClasse }}</li>
         {% endfor %}
     </ul>
     <a href="{{ path('app_evaluation_new') }}">Créer une nouvelle évaluation</a>
